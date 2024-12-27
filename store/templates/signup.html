@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8 pt-5 pb-5">
+            <form class="bg-white rounded shadow-5-strong p-5" action="/signup" method="POST">
+                <div class="text-center"><h2><b>Sign up</b></h2></div>
+                <hr>
+                
+                {% csrf_token %}
+
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">User Name</label>
+                    <input type="text" name="user_name"
+                     id="" value="{{values.user_name}}" class="form-control">
+                </div>
+                 <!-- phone -->
+                <div class="form-group">
+                    <label for="">Phone No.</label>
+                    <input type="number" name="phone" 
+                    id="" class="form-control"
+                    value="{{values.phone}}"
+                    placeholder="565698959" pattern="[0-9]{10,}"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control" placeholder="example@gmail.com">
+                </div>
+                <!-- address -->
+                <div class="form-group">
+                    <label for="">Address</label>
+                    <input required type="text" name="address" id=""
+                    value="{{values.address}}" 
+                    class=" form-control" placeholder="176,model town ,ratia dist fatehabad (pin-code=125051)" >
+                </div>
+                 <!-- pincode -->
+                 <div class="form-group">
+                    <label for="">Pincode</label>
+                    <input required type="number" name="pincode" id=""
+                    value="{{values.pincode}}" 
+                    class=" form-control" placeholder="125051" pattern="[0-9]{6.}">
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control" placeholder="********" pattern=".{6,}" title="6 or more characters">
+                </div>
+
+                 <!-- re-enter password -->
+                 <div class="form-group">
+                    <label for="">Re-enter Password</label>
+                    <input type="password" 
+                    name="re_enter_password" 
+                    id=""
+                     class="form-control " placeholder="********" pattern=".{6,}" >
+                </div>
+
+
+              
+
+           
+                <br>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-dark" style="background-color: #7b17b5;" type="submit" value="Create An Account ">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+        
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+<div class="container">
+   <div class="border rounded p-4 m-4">
+      
+   
+        
+            
+                     <p class="display-4 pl-4 ml-4">HISAB</p>
+                     <hr>
+                     <button onclick="window.print()">Print the ledger</button>
+  
+                     <table class="table">
+                         
+       {% for hisb in hisabs %}
+           <tr> 
+          <th>  {{hisb.order}}</th>
+            <th>{{hisb.description}}</th>
+           <th> {{hisb.amount}}</th>
+           </tr>
+           
+           {% endfor %}
+           <tr>
+               <th colspan="2">total</th>
+               <th>{{total_1}}</th>
+           </tr>  
+           </table>
+        <p><h1>Payment Recieved</h1></p>   
+        <table class="table">
+        {% for pymt in payments %}
+           <tr> 
+          <th>{{pymt}}</th>
+            <th>{{pymt.description}}</th>
+           <th> {{pymt.amount}}</th>
+           </tr>
+           {% endfor %}     
+       <tr>
+           <th colspan="2">Total</th>
+           <th>{{total_2}}</th>
+       </tr>    
+       
+       </table>
+       <p><h1>Final</h1></p>  
+      <table class="table">
+          <tr>
+              <th colspan="2">Debit</th>
+              <th >{{total_1}}</th>
+          </tr>
+          <tr>
+            <th colspan="2">Credit</th>
+            <th >{{total_2}}</th>
+        </tr>
+        <tr>
+            <th colspan="2">Balance</th>
+            <th >{{balance}}</th>
+        </tr>
+      </table>
+   </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
